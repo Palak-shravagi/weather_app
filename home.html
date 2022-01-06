@@ -1,0 +1,276 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+        *,
+        *:after,
+        *:before {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #CEF;
+        }
+        
+        .container {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            height: 98vh;
+        }
+        
+        .widget {
+            background: -webkit-gradient(linear, left top, right bottom, color-stop(20%, #3cc0fe), to(#0066ff));
+            background: linear-gradient(to bottom right, #3cc0fe 20%, #0066ff);
+            width: 900px;
+            height: 400px;
+            border-radius: 6px;
+            -webkit-box-shadow: 0px 60px 80px -20px rgba(39, 165, 253, 0.4);
+            box-shadow: 0px 60px 80px -20px rgba(39, 165, 253, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pictoBackdrop {
+            position: absolute;
+            height: 560px;
+            width: 560px;
+            border-radius: 50%;
+            background: linear-gradient(160deg, rgba(60, 192, 254, 0.7) 40%, rgba(0, 102, 255, 0.6));
+            right: -40px;
+            top: -90px;
+        }
+        
+        .pictoFrame {
+            position: absolute;
+            background: #34373e;
+            border-radius: 50%;
+            -webkit-box-shadow: 0px 50px 60px -20px #0066ff;
+            box-shadow: 0px 50px 60px -20px #0066ff;
+            height: 336px;
+            width: 336px;
+            right: 80px;
+            top: 25px;
+        }
+        
+        .pictoCloudBig {
+            position: absolute;
+            border-radius: 50%;
+            background: #aacbe6;
+            -webkit-box-shadow: 20px 20px 80px -20px #aacbe6;
+            box-shadow: 20px 20px 80px -20px #aacbe6;
+            height: 218.4px;
+            width: 218.4px;
+            top: 80px;
+            right: 160px;
+        }
+        
+        .pictoCloudFill {
+            position: absolute;
+            background: #aacbe6;
+            -webkit-box-shadow: 0px 20px 80px -20px #aacbe6;
+            box-shadow: 0px 20px 80px -20px #aacbe6;
+            height: 107.016px;
+            width: 107.016px;
+            top: 191px;
+            right: 265px;
+        }
+        
+        .pictoCloudSmall {
+            position: absolute;
+            border-radius: 50%;
+            background: #d2e9fa;
+            height: 152.88px;
+            width: 152.88px;
+            top: 146px;
+            right: 282px;
+        }
+        
+        .iconCloudBig {
+            position: absolute;
+            border-radius: 50%;
+            background: #9cd0ff;
+            height: 36px;
+            width: 36px;
+            top: 200px;
+            left: 80px;
+        }
+        
+        .iconCloudSmall {
+            position: absolute;
+            border-radius: 50%;
+            height: 23.4px;
+            width: 23.4px;
+            background: #d2e9fa;
+            top: 213px;
+            left: 70px;
+        }
+        
+        .iconCloudFill {
+            position: absolute;
+            height: 16.38px;
+            width: 16.38px;
+            background: #9cd0ff;
+            top: 220px;
+            left: 80px;
+        }
+        
+        .details {
+            font-family: Roboto, sans-serif;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            margin-top: 30px;
+            margin-left: 60px;
+        }
+        
+        .temperature {
+            color: white;
+            font-weight: 300;
+            font-size: 9em;
+        }
+        
+        .summary {
+            color: #d2e9fa;
+            font-size: 2em;
+            font-weight: 300;
+            width: 260px;
+            margin-top: -16px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #9cd0ff;
+            margin-left: 8px;
+        }
+        
+        .summaryText {
+            margin: 0;
+            margin-left: 56px;
+        }
+        
+        .precipitation,
+        .wind {
+            color: #d2e9fa;
+            font-size: 1.6em;
+            font-weight: 300;
+            margin-left: 8px;
+        }
+        
+        .precipitation {
+            margin-top: 16px;
+        }
+        
+        .wind {
+            margin-top: 4px;
+        }
+        /*# sourceMappingURL=style.css.map */
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="widget">
+            <div class="details">
+                <div class="temperature">{%tempval%}</div>
+                <div class="summary">
+                    <p class="summaryText">{%location%}</p>
+                </div>
+                <div class="precipitation"><span id="day">Wed |</span> | <span id="time">10:40 AM</span></div>
+                <div class="wind" id="date">4 Jan</div>
+                <div class="wind">Min {%tempmin%}| Max {%tempmax%}</div>
+            </div>
+            <div class="pictoBackdrop"></div>
+            <div class="pictoFrame"></div>
+            <div class="pictoCloudBig"></div>
+            <div class="pictoCloudFill"></div>
+            <div class="pictoCloudSmall"></div>
+            <div class="iconCloudBig"></div>
+            <div class="iconCloudFill"></div>
+            <div class="iconCloudSmall"></div>
+        </div>
+    </div>
+
+    <script>
+        const curdate = document.getElementById("date");
+        const tempstat = "clouds";
+        const getcurrentday = () => {
+            let currenttime = new Date();
+            const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            document.getElementById('day').innerText = weekday[currenttime.getDay()];
+            console.log(weekday[currenttime.getDay()]);
+        };
+        getcurrentday();
+
+        const getcurrtime = () => {
+            var today = new Date();
+
+            if (today.getHours() > 12) {
+                var time = today.getHours() + ":" + today.getMinutes() + ' PM';
+            } else {
+                var time = today.getHours() + ":" + today.getMinutes() + ' AM';
+            }
+            document.getElementById("time").innerText = time;
+
+            // for date;
+
+            var today = new Date();
+            var mS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+            var date = today.getDate() + ' ' + mS[today.getMonth()];
+            document.getElementById("date").innerText = date;
+
+        };
+        getcurrtime();
+        const http = require("http");
+        const fs = require("fs");
+        const homefile = fs.readFileSync("home.html", "utf-8");
+        var requests = require("requests");
+
+        const replaceval = (tempval, orgval) => {
+            let temperature = tempval.replace("{%tempval%}", orgval.main.temp);
+            temperature = temperature.replace("{%tempmin%}", orgval.main.temp_min);
+            temperature = temperature.replace("{%tempmax%}", orgval.main.temp_max);
+            temperature = temperature.replace("{%location%}", orgval.name);
+            return temperature;
+        };
+
+        const server = http.createServer((req, res) => {
+            if (req.url == "/") {
+                requests("https://api.openweathermap.org/data/2.5/weather?q=pune&appid=49505ef46d6c54582837e1217809ff32")
+                    .on('data', function(chunk) {
+                        const objdata = JSON.parse(chunk);
+                        const arr = [objdata];
+                        // console.log(arr);
+                        const realtimedata = arr
+                            .map((val) => replaceval(homefile, val))
+                            .join("");
+                        console.log(realtimedata);
+                        res.write(realtimedata);
+                    })
+                    .on('end', function(err) {
+                        if (err) return console.log('connection closed due to errors', err);
+
+                        res.end();
+                    });
+            }
+        });
+
+        server.listen(8000, "127.0.0.1");
+    </script>
+
+</body>
+
+</html>
